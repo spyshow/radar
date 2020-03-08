@@ -251,3 +251,17 @@ CREATE TABLE alarms(
   created_at TIMESTAMPTZ,
   updated_at TIMESTAMPTZ
 );
+
+CREATE TABLE tray(
+  uid UUID PRIMARY KEY,
+  machine_id INT REFERENCES machines(uid),
+  created_at TIMESTAMPTZ
+);
+
+CREATE TABLE jobs(
+  uid INT UNIQUE PRIMARY KEY,
+  name VARCHAR(255),
+  width FLOAT,
+  hight FLOAT,
+  created_at TIMESTAMPTZ
+);
