@@ -5,6 +5,7 @@ CREATE TABLE users (
   email VARCHAR(255),
   date_created DATE,
   last_login DATE,
+  timezone VARCHAR(255),
   created_at TIMESTAMPTZ,
   updated_at TIMESTAMPTZ
 );
