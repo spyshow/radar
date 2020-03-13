@@ -8,6 +8,7 @@
   "dependencies": {
     "cookie-parser": "~1.4.4",
     "cors": "^2.8.5",
+    "cron-job-manager": "^2.1.2",
     "debug": "~2.6.9",
     "express": "~4.16.1",
     "helmet": "^3.21.3",
