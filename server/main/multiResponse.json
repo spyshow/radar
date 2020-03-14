@@ -1,0 +1,208 @@
+{
+  "Mold": {
+    "$": {
+      "id": "0"
+    },
+    "Machine": [
+      {
+        "$": {
+          "id": "MULTI"
+        },
+        "Inspected": ["210"],
+        "Rejects": ["11"],
+        "Defects": ["11"],
+        "Sensor": [
+          {
+            "$": {
+              "id": "Mcf"
+            },
+            "Rejects": ["11"],
+            "Defects": ["11"],
+            "Counter": [
+              {
+                "$": {
+                  "id": "Other-defects",
+                  "Nb": "0"
+                }
+              },
+              {
+                "$": {
+                  "id": "Stone",
+                  "Nb": "2"
+                }
+              },
+              {
+                "$": {
+                  "id": "Blister",
+                  "Nb": "0"
+                }
+              },
+              {
+                "$": {
+                  "id": "Drawn",
+                  "Nb": "9"
+                }
+              },
+              {
+                "$": {
+                  "id": "Density",
+                  "Nb": "0"
+                }
+              },
+              {
+                "$": {
+                  "id": "Light bottom",
+                  "Nb": "0"
+                }
+              },
+              {
+                "$": {
+                  "id": "Chocked neck",
+                  "Nb": "0"
+                }
+              },
+              {
+                "$": {
+                  "id": "Mark",
+                  "Nb": "0"
+                }
+              }
+            ]
+          },
+          {
+            "$": {
+              "id": "Csbclo"
+            },
+            "Rejects": ["0"],
+            "Defects": ["0"],
+            "Counter": [
+              {
+                "$": {
+                  "id": "Registration 1",
+                  "Nb": "0"
+                }
+              },
+              {
+                "$": {
+                  "id": "Line over finish",
+                  "Nb": "0"
+                }
+              },
+              {
+                "$": {
+                  "id": "Internal blister 1",
+                  "Nb": "0"
+                }
+              },
+              {
+                "$": {
+                  "id": "Internal blister 2",
+                  "Nb": "0"
+                }
+              },
+              {
+                "$": {
+                  "id": "External blister",
+                  "Nb": "0"
+                }
+              },
+              {
+                "$": {
+                  "id": "Scaly finish",
+                  "Nb": "0"
+                }
+              },
+              {
+                "$": {
+                  "id": "Sugary top",
+                  "Nb": "0"
+                }
+              },
+              {
+                "$": {
+                  "id": "Overpressed 1",
+                  "Nb": "0"
+                }
+              },
+              {
+                "$": {
+                  "id": "Overpressed 2",
+                  "Nb": "0"
+                }
+              },
+              {
+                "$": {
+                  "id": "Unrolled",
+                  "Nb": "0"
+                }
+              },
+              {
+                "$": {
+                  "id": "Unfilled finish 1",
+                  "Nb": "0"
+                }
+              },
+              {
+                "$": {
+                  "id": "Unfilled finish 2",
+                  "Nb": "0"
+                }
+              },
+              {
+                "$": {
+                  "id": "Unfilled finish 3",
+                  "Nb": "0"
+                }
+              },
+              {
+                "$": {
+                  "id": "Internal black defect",
+                  "Nb": "0"
+                }
+              },
+              {
+                "$": {
+                  "id": "Surface black defect",
+                  "Nb": "0"
+                }
+              },
+              {
+                "$": {
+                  "id": "External black defect",
+                  "Nb": "0"
+                }
+              }
+            ]
+          },
+          {
+            "$": {
+              "id": "Stress"
+            },
+            "Rejects": ["0"],
+            "Defects": ["0"],
+            "Counter": [
+              {
+                "$": {
+                  "id": "Stress",
+                  "Nb": "0"
+                }
+              },
+              {
+                "$": {
+                  "id": "Error",
+                  "Nb": "0"
+                }
+              },
+              {
+                "$": {
+                  "id": "Black image",
+                  "Nb": "0"
+                }
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}
