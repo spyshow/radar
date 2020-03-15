@@ -1,5 +1,4 @@
 const soap = require("soap");
-const schedule = require("node-schedule");
 const CronJobManager = require("cron-job-manager");
 const parseString = require("xml2js").parseString;
 const pool = require("./db");
