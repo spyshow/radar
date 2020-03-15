@@ -1,8 +1,10 @@
-var soap = require("soap");
-var schedule = require("node-schedule");
+const soap = require("soap");
+const schedule = require("node-schedule");
+const CronJobManager = require("cron-job-manager");
 const parseString = require("xml2js").parseString;
-var pool = require("./db");
+const pool = require("./db");
 
+const manager = new CronJobManager();
 let machines = [];
 let jobs = [];
 
@@ -31,8 +33,8 @@ readMachinesConfig().then(machines => {
   Object.keys(machines).map((machineName, index) => {
     let scantime = "*/" + machines[machineName].scantime + " * * * *";
 
-    jobs[index] = schedule.scheduleJob(scantime, function() {
-      console.log(machines[machineName].url);
+    //jobs[index] = schedule.scheduleJob(scantime, function() {
+    manager.add(machineName, scantime, () => {
       soap.createClient(
         "http://192.168.0.191/webservice/cwebservice.asmx?wsdl",
         //machines[machineName].url + "/webservice/cwebservice.asmx?wsdl",
@@ -42,6 +44,7 @@ readMachinesConfig().then(machines => {
             //making request for count
             parseString(xml.CountsResult, function(err, result) {
               // from xml to json
+              console.log(JSON.stringify(result, null, 4));
 
               //insert query string
               let queryString = `INSERT INTO public.multi4( 
@@ -53,7 +56,6 @@ readMachinesConfig().then(machines => {
                 csbcArray = [],
                 spikeArray = [],
                 stressArray = [];
-              console.log(JSON.stringify(result, null, 4));
 
               // declaring sensor object for multi
               let multi4Result = result.Mold.Machine[0];
@@ -80,13 +82,11 @@ readMachinesConfig().then(machines => {
               for (let i = 0; i < Object.keys(csbc.Counter).length; i++) {
                 csbcArray[i] = s2n(csbc.Counter[i]["$"].Nb);
               }
-              console.table(csbc);
               // declaring sensor object for stress to stressArray if it is active
               if (result.Mold.Machine[0].Sensor[2].$.id == "Stress") {
                 let stress = result.Mold.Machine[0].Sensor[2];
                 // declaring sensor defects for stress to stressArray
                 for (let i = 0; i < Object.keys(stress.Counter).length; i++) {
-                  console.log(Object.keys(stress).length, i, stress.Counter[i]);
                   stressArray[i] = s2n(stress.Counter[i]["$"].Nb);
                 }
                 // if spike is activated,// declaring sensor object for spike
@@ -142,6 +142,7 @@ readMachinesConfig().then(machines => {
         }
       );
     });
+    manager.start(machineName);
   });
   return jobs;
 });
