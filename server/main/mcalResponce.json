@@ -1,0 +1,154 @@
+{
+  "Mold": {
+    "$": {
+      "id": "0"
+    },
+    "Machine": [
+      {
+        "$": {
+          "id": "MCAL"
+        },
+        "Inspected": ["702"],
+        "Rejects": ["15"],
+        "Defects": ["701"],
+        "Sensor": [
+          {
+            "$": {
+              "id": "Sidewall"
+            },
+            "Rejects": ["14"],
+            "Defects": ["14"],
+            "Counter": [
+              {
+                "$": {
+                  "id": "Sidewall-other",
+                  "Nb": "3"
+                }
+              },
+              {
+                "$": {
+                  "id": "Stone",
+                  "Nb": "1"
+                }
+              },
+              {
+                "$": {
+                  "id": "Blister",
+                  "Nb": "9"
+                }
+              },
+              {
+                "$": {
+                  "id": "Drawn",
+                  "Nb": "2"
+                }
+              },
+              {
+                "$": {
+                  "id": "Side object",
+                  "Nb": "0"
+                }
+              },
+              {
+                "$": {
+                  "id": "Density",
+                  "Nb": "0"
+                }
+              },
+              {
+                "$": {
+                  "id": "Thin",
+                  "Nb": "0"
+                }
+              },
+              {
+                "$": {
+                  "id": "Bird",
+                  "Nb": "0"
+                }
+              },
+              {
+                "$": {
+                  "id": "Wing",
+                  "Nb": "0"
+                }
+              },
+              {
+                "$": {
+                  "id": "Error",
+                  "Nb": "0"
+                }
+              },
+              {
+                "$": {
+                  "id": "Black Image",
+                  "Nb": "0"
+                }
+              }
+            ]
+          },
+          {
+            "$": {
+              "id": "Stress"
+            },
+            "Rejects": ["1"],
+            "Defects": ["1"],
+            "Counter": [
+              {
+                "$": {
+                  "id": "Stress",
+                  "Nb": "1"
+                }
+              },
+              {
+                "$": {
+                  "id": "Error",
+                  "Nb": "0"
+                }
+              },
+              {
+                "$": {
+                  "id": "Black image",
+                  "Nb": "0"
+                }
+              }
+            ]
+          },
+          {
+            "$": {
+              "id": "Dim"
+            },
+            "Rejects": ["0"],
+            "Defects": ["701"],
+            "Counter": [
+              {
+                "$": {
+                  "id": "Verticality",
+                  "Nb": "663"
+                }
+              },
+              {
+                "$": {
+                  "id": "Error",
+                  "Nb": "0"
+                }
+              },
+              {
+                "$": {
+                  "id": "Diameter",
+                  "Nb": "701"
+                }
+              },
+              {
+                "$": {
+                  "id": "Height",
+                  "Nb": "0"
+                }
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

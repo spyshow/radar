@@ -1,0 +1,37 @@
+<Mold id="0">
+   <Machine id="MCAL">
+      <Inspected>137</Inspected>
+      <Rejects>5</Rejects>
+      <Defects>135</Defects>
+      <Sensor id="Sidewall">
+         <Rejects>5</Rejects>
+         <Defects>5</Defects>
+         <Counter id="Sidewall-other" Nb="0" />
+         <Counter id="Stone" Nb="2" />
+         <Counter id="Blister" Nb="2" />
+         <Counter id="Drawn" Nb="1" />
+         <Counter id="Side object" Nb="0" />
+         <Counter id="Density" Nb="0" />
+         <Counter id="Thin" Nb="0" />
+         <Counter id="Bird" Nb="0" />
+         <Counter id="Wing" Nb="0" />
+         <Counter id="Error" Nb="0" />
+         <Counter id="Black Image" Nb="1" />
+      </Sensor>
+      <Sensor id="Stress">
+         <Rejects>1</Rejects>
+         <Defects>1</Defects>
+         <Counter id="Stress" Nb="1" />
+         <Counter id="Error" Nb="1" />
+         <Counter id="Black image" Nb="0" />
+      </Sensor>
+      <Sensor id="Dim">
+         <Rejects>0</Rejects>
+         <Defects>135</Defects>
+         <Counter id="Verticality" Nb="131" />
+         <Counter id="Error" Nb="0" />
+         <Counter id="Diameter" Nb="135" />
+         <Counter id="Height" Nb="0" />
+      </Sensor>
+   </Machine>
+</Mold>
