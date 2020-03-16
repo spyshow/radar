@@ -6,7 +6,6 @@ const multiRequest = require("./multiRequest");
 const mcalRequest = require("./mcalRequest");
 
 const manager = new CronJobManager();
-let machines = [];
 let jobs = [];
 
 //fetch machines configrations
