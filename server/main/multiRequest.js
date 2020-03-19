@@ -65,6 +65,7 @@ let multiRequest = function(xml, machineId) {
       spike,
       stress;
     // declaring sensor object for multi
+    if (result == null) return;
     let multi4Result = result.Mold.Machine[0];
 
     result.Mold.Machine[0].Sensor.map((sensor, index) => {
@@ -103,67 +104,6 @@ let multiRequest = function(xml, machineId) {
       }
     });
 
-    // // declaring sensor object for mcf
-    // let mcf =
-    //   result.Mold.Machine[0].Sensor[0].$.id == "Mcf"
-    //     ? result.Mold.Machine[0].Sensor[0]
-    //     : null;
-    // // declaring sensor defects for mcf to mcfArray
-    // for (let i = 0; i < Object.keys(mcf.Counter).length; i++) {
-    //   mcfArray[i] = s2n(mcf.Counter[i]["$"].Nb);
-    // }
-
-    // // declaring sensor object for csbc,csbclo or crb
-    // let csbc =
-    //   result.Mold.Machine[0].Sensor[1].$.id == "Csbc" ||
-    //   result.Mold.Machine[0].Sensor[1].$.id == "Csbclo" ||
-    //   result.Mold.Machine[0].Sensor[1].$.id == "Crb"
-    //     ? result.Mold.Machine[0].Sensor[1]
-    //     : null;
-
-    // // declaring sensor defects for csbc,csbclo or crb to csbcArray
-    // for (let i = 0; i < Object.keys(csbc.Counter).length; i++) {
-    //   csbcArray[i] = s2n(csbc.Counter[i]["$"].Nb);
-    // }
-    // // declaring sensor object for stress to stressArray if it is active
-    // if (result.Mold.Machine[0].Sensor[2].$.id == "Stress") {
-    //   let stress = result.Mold.Machine[0].Sensor[2];
-    //   // declaring sensor defects for stress to stressArray
-    //   for (let i = 0; i < Object.keys(stress.Counter).length; i++) {
-    //     stressArray[i] = s2n(stress.Counter[i]["$"].Nb);
-    //   }
-    //   // if spike is activated,// declaring sensor object for spike
-    //   if (result.Mold.Machine[0].Sensor[3]) {
-    //     let spike = result.Mold.Machine[0].Sensor[3];
-
-    //     // declaring sensor object for spike to spikeArray
-    //     for (let i = 0; i < Object.keys(spike.Counter).length; i++) {
-    //       spikeArray[i] = s2n(spike.Counter[i]["$"].Nb);
-    //     }
-    //   } else {
-    //     //if spike is not active put 0 in all it's sensor values
-    //     spikeArray = [0, 0, 0, 0, 0, 0, 0, 0];
-    //   }
-    // } else {
-    //   // declaring sensor object for spike to spikeArray
-    //   let spike = result.Mold.Machine[0].Sensor[2];
-
-    //   // declaring sensor object for spike to spikeArray
-    //   for (let i = 0; i < Object.keys(spike.Counter).length; i++) {
-    //     spikeArray[i] = s2n(spike.Counter[i]["$"].Nb);
-    //   }
-
-    //   //if stress is activated
-    //   if (result.Mold.Machine[0].Sensor[3].$.id == "Stress") {
-    //     let stress = result.Mold.Machine[0].Sensor[3];
-    //     for (let i = 0; i < Object.keys(stress.Counter).length; i++) {
-    //       stressArray[i] = s2n(stress.Counter[i]["$"].Nb);
-    //     }
-    //   } else {
-    //     stressArray[i] = [0, 0, 0];
-    //   }
-    // }
-
     let values = [
       machineId,
       s2n(multi4Result.Inspected[0]),
@@ -177,6 +117,8 @@ let multiRequest = function(xml, machineId) {
       ...spikeArray,
       ...stressArray
     ];
+
+    console.table(values);
     pool.query(queryString, values).catch(error => console.log(error));
   });
 };
