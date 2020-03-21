@@ -1,0 +1,33 @@
+{
+  "sensors": [
+    {
+      "id": "Sidewall",
+      "counter": [
+        { "id": "Sidewallother" },
+        { "id": "Stone" },
+        { "id": "Blister" },
+        { "id": "Drawn" },
+        { "id": "Sideobject" },
+        { "id": "Density" },
+        { "id": "Thin" },
+        { "id": "Bird" },
+        { "id": "Wing" },
+        { "id": "Error" },
+        { "id": "BlackImage" }
+      ]
+    },
+    {
+      "id": "Stress",
+      "counter": [{ "id": "Stress" }, { "id": "Error" }, { "id": "Blackimage" }]
+    },
+    {
+      "id": "Dim",
+      "counter": [
+        { "id": "Verticality" },
+        { "id": "Error" },
+        { "id": "Diameter" },
+        { "id": "Height" }
+      ]
+    }
+  ]
+}
