@@ -6,9 +6,9 @@ const pool = require("./db");
 function learnSensors(url, machineName, machineId) {
   const sensorObj = { sensors: [] };
   let insertQuery =
-    "CREATE TABLE " +
+    'CREATE TABLE "' +
     machineName +
-    " ( uid uuid NOT NULL, machine_id integer, ";
+    '" ( uid uuid NOT NULL, machine_id integer, inspected integer, rejected integer, ';
   soap.createClient(
     url + "/webservice/cwebservice.asmx?wsdl",
     //"http://192.168.0.191/webservice/cwebservice.asmx?wsdl",
@@ -71,4 +71,4 @@ function learnSensors(url, machineName, machineId) {
   );
 }
 
-learnSensors("http://192.168.0.191", "MULTI4_M21", 1);
+learnSensors("http://192.168.0.191", "MULTI_M21", 1);
