@@ -38,31 +38,46 @@ function readMachinesConfig() {
                     } else {
                       //building Insert query
                       let insertQuery1 =
-                        "INSERT INTO " +
+                        'INSERT INTO "' +
                         result.Mold.Machine[0].$.id +
                         "_" +
                         machine.machine_line.replace(/[^A-Z0-9]/gi, "") +
-                        " (uid,machine_id, inspected, rejected, ";
-                      let insertQuery2 = "VALUES (uuid_generate_v4(),$1,$2,$3,";
+                        '" (uid,machine_id, inspected, rejected, ';
+                      let insertQuery2 =
+                        " VALUES (uuid_generate_v4(),$1,$2,$3,";
                       let sensorIndex = 4;
+                      let sensorArray = [];
                       machine.sensors.sensors.map((sensor, index) => {
                         for (var i = 0; i < sensor.counter.length; i++) {
                           insertQuery1 +=
                             sensor.id + "_" + sensor.counter[i].id + ",";
                           insertQuery2 += "$" + sensorIndex + " ,";
+                          sensorArray[sensorIndex - 4] = s2n(
+                            result.Mold.Machine[0].Sensor[index].Counter[i]["$"]
+                              .Nb
+                          ); // insert value of counter to sensor array
                           sensorIndex++;
                         }
                       });
                       insertQuery1 += "created_at, updated_at) ";
                       insertQuery2 += " NOW(), NOW());";
+                      let insertQuery = insertQuery1 + insertQuery2;
                       //DONE BUILDING INSERT QUERY
 
                       //START GATHERING THE INSERT VALUES
-
+                      let values = [
+                        machine.uid,
+                        s2n(result.Mold.Machine[0].Inspected),
+                        s2n(result.Mold.Machine[0].Rejects),
+                        ...sensorArray
+                      ];
                       //DONE GATHERING THE INSERT VALUES
 
                       //INSERT VALUES TO DB
-
+                      pool
+                        .query(insertQuery, values)
+                        .then(() => console.log("done!"))
+                        .catch(error => console.log(error));
                       //DONE INSERTING VALUES TO DB
                     }
                   });
