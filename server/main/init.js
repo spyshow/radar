@@ -55,7 +55,7 @@ function learnSensors(url, machineName, machineId) {
               const updateQuery = `UPDATE public.machines
                 SET sensors=$1
                 WHERE uid=$2;`;
-
+              console.log(machineId, JSON.stringify(sensorObj, null, 4));
               const updateValues = [sensorObj, machineId];
               pool
                 .query(insertQuery)
@@ -71,4 +71,4 @@ function learnSensors(url, machineName, machineId) {
   );
 }
 
-learnSensors("http://192.168.0.190", "MCAL4_M21", 1);
+learnSensors("http://192.168.0.191", "MULTI4_M21", 1);
