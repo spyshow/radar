@@ -8,20 +8,24 @@ function learnSensors(url, machineName, machineId) {
   let insertQuery =
     'CREATE TABLE "' +
     machineName +
-    '" ( uid uuid NOT NULL, machine_id integer, inspected integer, rejected integer, ';
+    '" ( uid uuid NOT NULL, machine_id integer, inspected integer, rejected integer, mold integer, ';
   soap.createClient(
     url + "/webservice/cwebservice.asmx?wsdl",
     //"http://192.168.0.191/webservice/cwebservice.asmx?wsdl",
     function(err, client) {
       if (typeof client === "undefined") {
+        console.log("waiting Client ... ");
         setTimeout(learnSensors, 60000);
       } else {
         //calling soap api
         client.Counts({}, function(err, xml) {
           parseString(xml.CountsResult, function(err, result) {
             if (result == null) {
+              console.log("waiting result ... ");
               setTimeout(learnSensors, 60000);
             } else {
+              console.log(JSON.stringify(result, null, 4));
+
               let machine = result.Mold.Machine[0];
 
               machine.Sensor.map((sensor, index) => {
@@ -71,4 +75,4 @@ function learnSensors(url, machineName, machineId) {
   );
 }
 
-learnSensors("http://192.168.0.191", "MULTI_M21", 1);
+learnSensors("http://192.168.0.192", "MX_M21", 3);
